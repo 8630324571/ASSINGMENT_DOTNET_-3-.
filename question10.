@@ -1,0 +1,45 @@
+using System;
+
+// Abstract Notification class
+abstract class Notification
+{
+    // Abstract method
+    public abstract void SendNotification();
+}
+
+// EmailNotification inherits Notification
+class EmailNotification : Notification
+{
+    public override void SendNotification()
+    {
+        Console.WriteLine("Email notification sent.");
+    }
+}
+
+// Specialized notification cannot be inherited further
+sealed class SpecializedNotification : Notification
+{
+    public override void SendNotification()
+    {
+        Console.WriteLine("Specialized notification sent.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Creating EmailNotification object
+        EmailNotification email = new EmailNotification();
+        email.SendNotification();
+
+        // Creating SpecializedNotification object
+        SpecializedNotification special = new SpecializedNotification();
+        special.SendNotification();
+
+        // This is NOT allowed:
+        // class CustomNotification : SpecializedNotification
+        // {
+        // }
+    }
+}

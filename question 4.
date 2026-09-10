@@ -1,0 +1,54 @@
+using System;
+
+sealed class EmployeePayroll
+{
+    private double basicSalary;
+
+    public EmployeePayroll(double basicSalary)
+    {
+        this.basicSalary = basicSalary;
+    }
+
+    // Calculate salary
+    public double CalculateSalary()
+    {
+        return basicSalary;
+    }
+
+    // Calculate tax
+    public double CalculateTax()
+    {
+        double salary = CalculateSalary();
+
+        if (salary > 50000)
+            return salary * 0.10;
+        else if (salary > 30000)
+            return salary * 0.05;
+        else
+            return 0;
+    }
+
+    // Calculate net salary
+    public double CalculateNetSalary()
+    {
+        return CalculateSalary() - CalculateTax();
+    }
+
+    // Display payroll details
+    public void DisplayPayroll()
+    {
+        Console.WriteLine("Basic Salary: ₹" + CalculateSalary());
+        Console.WriteLine("Tax: ₹" + CalculateTax());
+        Console.WriteLine("Net Salary: ₹" + CalculateNetSalary());
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        EmployeePayroll employee = new EmployeePayroll(60000);
+
+        employee.DisplayPayroll();
+    }
+}

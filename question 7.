@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+
+// Generic Repository class
+class Repository<T>
+{
+    private List<T> items = new List<T>();
+
+    // Add object
+    public void Add(T item)
+    {
+        items.Add(item);
+    }
+
+    // Retrieve all objects
+    public List<T> GetAll()
+    {
+        return items;
+    }
+}
+
+// Student class
+class Student
+{
+    public int RollNumber { get; set; }
+    public string Name { get; set; }
+
+    public Student(int rollNumber, string name)
+    {
+        RollNumber = rollNumber;
+        Name = name;
+    }
+
+    public override string ToString()
+    {
+        return "Roll Number: " + RollNumber + ", Name: " + Name;
+    }
+}
+
+// Employee class
+class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public Employee(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+
+    public override string ToString()
+    {
+        return "Employee ID: " + Id + ", Name: " + Name;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Repository for Student objects
+        Repository<Student> studentRepository = new Repository<Student>();
+
+        studentRepository.Add(new Student(101, "Abhay"));
+        studentRepository.Add(new Student(102, "Rahul"));
+
+        Console.WriteLine("--- Students ---");
+
+        foreach (Student student in studentRepository.GetAll())
+        {
+            Console.WriteLine(student);
+        }
+
+        // Repository for Employee objects
+        Repository<Employee> employeeRepository = new Repository<Employee>();
+
+        employeeRepository.Add(new Employee(1, "Amit"));
+        employeeRepository.Add(new Employee(2, "Rohit"));
+
+        Console.WriteLine("\n--- Employees ---");
+
+        foreach (Employee employee in employeeRepository.GetAll())
+        {
+            Console.WriteLine(employee);
+        }
+    }
+}

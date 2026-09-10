@@ -1,0 +1,48 @@
+using System;
+
+static class ApplicationConfiguration
+{
+    // Database connection information
+    public static string DatabaseServer = "localhost";
+    public static string DatabaseName = "UniversityDB";
+    public static string ConnectionString =
+        "Server=localhost;Database=UniversityDB;Trusted_Connection=True;";
+
+    // Application-wide settings
+    public static string ApplicationName = "University Management System";
+    public static string Version = "1.0";
+    public static bool EnableLogging = true;
+
+    // Display configuration
+    public static void DisplayConfiguration()
+    {
+        Console.WriteLine("--- Application Configuration ---");
+
+        Console.WriteLine("Application Name: " + ApplicationName);
+        Console.WriteLine("Version: " + Version);
+
+        Console.WriteLine("\n--- Database Information ---");
+        Console.WriteLine("Server: " + DatabaseServer);
+        Console.WriteLine("Database: " + DatabaseName);
+        Console.WriteLine("Connection String: " + ConnectionString);
+
+        Console.WriteLine("\nLogging Enabled: " + EnableLogging);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Accessing static class members
+        ApplicationConfiguration.DisplayConfiguration();
+
+        Console.WriteLine("\nApplication configuration loaded successfully.");
+
+        // This is NOT allowed:
+        // ApplicationConfiguration obj = new ApplicationConfiguration();
+
+        // This is also NOT allowed:
+        // class MyConfig : ApplicationConfiguration { }
+    }
+}

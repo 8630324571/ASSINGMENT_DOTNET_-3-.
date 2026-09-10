@@ -1,0 +1,70 @@
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Vehicle vehicle = new Vehicle(
+            "UP80AB1234",
+            "Toyota",
+            "Fortuner",
+            2025
+        );
+
+        vehicle.DisplayDetails();
+
+        vehicle.Start();
+        vehicle.Stop();
+    }
+}
+
+
+
+using System;
+
+public partial class Vehicle
+{
+    // Start vehicle
+    public void Start()
+    {
+        Console.WriteLine("Vehicle started.");
+    }
+
+    // Stop vehicle
+    public void Stop()
+    {
+        Console.WriteLine("Vehicle stopped.");
+    }
+
+    // Display vehicle information
+    public void DisplayDetails()
+    {
+        Console.WriteLine("\n--- Vehicle Details ---");
+        Console.WriteLine("Vehicle Number: " + VehicleNumber);
+        Console.WriteLine("Brand: " + Brand);
+        Console.WriteLine("Model: " + Model);
+        Console.WriteLine("Year: " + Year);
+    }
+}
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Vehicle vehicle = new Vehicle(
+            "UP80AB1234",
+            "Toyota",
+            "Fortuner",
+            2025
+        );
+
+        vehicle.DisplayDetails();
+
+        vehicle.Start();
+        vehicle.Stop();
+    }
+}
